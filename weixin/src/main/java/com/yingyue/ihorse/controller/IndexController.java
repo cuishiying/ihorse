@@ -17,8 +17,8 @@ import javax.servlet.http.HttpServletRequest;
  * Created by cuishiying on 2017/5/10.
  */
 @RestController
-@RequestMapping("/customer")
-public class CustomerController {
+@RequestMapping("/")
+public class IndexController {
     @Autowired
     private CustomerService customerService;
 
