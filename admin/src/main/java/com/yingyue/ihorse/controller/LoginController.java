@@ -10,7 +10,7 @@ public class LoginController {
 
 	@RequestMapping(path = "to_login", method = RequestMethod.GET)
 	public ModelAndView toLogin() {
-		ModelAndView model = new ModelAndView("login");
+		ModelAndView model = new ModelAndView("signin");
 		return model;
 	}
 }

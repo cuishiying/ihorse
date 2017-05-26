@@ -17,7 +17,7 @@ public class IndexController {
      */
     @RequestMapping
     public ModelAndView index(){
-        ModelAndView model = new ModelAndView("index");
+        ModelAndView model = new ModelAndView("customer_list");
         return model;
     }
 }
