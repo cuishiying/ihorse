@@ -59,80 +59,20 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr class="text-center">
+                    <tr class="text-center" th:each="customer:${page.content}">
                         <td>
                             <label>
                                 <input type="checkbox" value="remember-me">
                             </label>
                         </td>
-                        <td>zhangsan</td>
-                        <td>张三</td>
-                        <td>男</td>
-                        <td>1990-03-05</td>
-                        <td>15135173514</td>
-                        <td>123456</td>
-                        <td>643971065</td>
-                        <td>15135173514@163.com</td>
-                        <td>
-                            <a class="btn btn-sm btn-success">查看</a>
-                            <a class="btn btn-sm btn-success">修改</a>
-                            <a class="btn btn-sm btn-danger">删除</a>
-                        </td>
-                    </tr>
-                    <tr class="text-center">
-                        <td>
-                            <label>
-                                <input type="checkbox" value="remember-me">
-                            </label>
-                        </td>
-                        <td>zhangsan</td>
-                        <td>张三</td>
-                        <td>男</td>
-                        <td>1990-03-05</td>
-                        <td>15135173514</td>
-                        <td>123456</td>
-                        <td>643971065</td>
-                        <td>15135173514@163.com</td>
-                        <td>
-                            <a class="btn btn-sm btn-success">查看</a>
-                            <a class="btn btn-sm btn-success">修改</a>
-                            <a class="btn btn-sm btn-danger">删除</a>
-                        </td>
-                    </tr>
-                    <tr class="text-center">
-                        <td>
-                            <label>
-                                <input type="checkbox" value="remember-me">
-                            </label>
-                        </td>
-                        <td>zhangsan</td>
-                        <td>张三</td>
-                        <td>男</td>
-                        <td>1990-03-05</td>
-                        <td>15135173514</td>
-                        <td>123456</td>
-                        <td>643971065</td>
-                        <td>15135173514@163.com</td>
-                        <td>
-                            <a class="btn btn-sm btn-success">查看</a>
-                            <a class="btn btn-sm btn-success">修改</a>
-                            <a class="btn btn-sm btn-danger">删除</a>
-                        </td>
-                    </tr>
-                    <tr class="text-center">
-                        <td>
-                            <label>
-                                <input type="checkbox" value="remember-me">
-                            </label>
-                        </td>
-                        <td>zhangsan</td>
-                        <td>张三</td>
-                        <td>男</td>
-                        <td>1990-03-05</td>
-                        <td>15135173514</td>
-                        <td>123456</td>
-                        <td>643971065</td>
-                        <td>15135173514@163.com</td>
+                        <td th:text="${customer.accountNumber}">zhangsan</td>
+                        <td th:text="${customer.adminName}">张三</td>
+                        <td th:text="${customer.sex?.name}">男</td>
+                        <td th:text="${customer.birth}">1990-03-05</td>
+                        <td th:text="${customer.phone}">15135173514</td>
+                        <td th:text="${customer.weixin}">123456</td>
+                        <td th:text="${customer.qqNumber}">643971065</td>
+                        <td th:text="${customer.email}">15135173514@163.com</td>
                         <td>
                             <a class="btn btn-sm btn-success">查看</a>
                             <a class="btn btn-sm btn-success">修改</a>

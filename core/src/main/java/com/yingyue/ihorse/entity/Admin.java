@@ -2,8 +2,11 @@ package com.yingyue.ihorse.entity;
 
 
 import com.yingyue.ihorse.base.BaseEntity;
+import com.yingyue.ihorse.enums.Sex;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  * Created by cuishiying on 2017/5/9.
@@ -27,6 +30,10 @@ public class Admin extends BaseEntity {
     private String weixin;
 
     private String qqNumber;
+
+    protected Sex sex;//性别      0保密  1男   2女;
+
+    private LocalDate birth;
 
     @Column(nullable = false, unique = true)
     private String phone;
@@ -117,5 +124,21 @@ public class Admin extends BaseEntity {
 
     public void setIdCard(String idCard) {
         this.idCard = idCard;
+    }
+
+    public Sex getSex() {
+        return sex;
+    }
+
+    public void setSex(Sex sex) {
+        this.sex = sex;
+    }
+
+    public LocalDate getBirth() {
+        return birth;
+    }
+
+    public void setBirth(LocalDate birth) {
+        this.birth = birth;
     }
 }

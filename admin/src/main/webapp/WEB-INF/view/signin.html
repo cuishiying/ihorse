@@ -35,12 +35,12 @@
 
 <div class="container">
 
-    <form class="form-signin">
+    <form class="form-signin" th:action="@{/login}" th:method="post" onSubmit="return from1();">
         <h2 class="form-signin-heading">Please sign in</h2>
         <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <input type="text" id="inputEmail" class="form-control" placeholder="Email address" name="username" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
         <div class="checkbox">
             <label>
                 <input type="checkbox" value="remember-me"> Remember me
@@ -54,5 +54,31 @@
 
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script th:src="@{/static/js/ie10-viewport-bug-workaround.js}"></script>
+<script type="text/javascript" th:inline="javascript">
+    function from1(){
+        var allValid = true;
+        if($("[name='username']").val().length == 0){
+            $("[name='username']").next().find(".hint_warning").show();
+            $("[name='username']").next().find(".hint_exactness").hide();
+            $("[name='username']").parent().attr("class","accountNumber_out current");
+            allValid = false;
+        }else{
+            $("[name='username']").next().find(".hint_exactness").show();
+            $("[name='username']").next().find(".hint_warning").hide();
+            $("[name='username']").parent().attr("class","accountNumber_out");
+        }
+        if($("[name='password']").val().length == 0||$("[name='password']").val().length < 5){
+            $("[name='password']").next().find(".hint_warning").show();
+            $("[name='password']").next().find(".hint_exactness").hide();
+            $("[name='password']").parent().attr("class","accountNumber_out current");
+            allValid = false;
+        }else{
+            $("[name='password']").next().find(".hint_warning").hide();
+            $("[name='password']").next().find(".hint_exactness").show();
+            $("[name='password']").parent().attr("class","accountNumber_out");
+        }
+        return allValid;
+    }
+</script>
 </body>
 </html>
