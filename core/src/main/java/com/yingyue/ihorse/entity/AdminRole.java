@@ -11,6 +11,7 @@ import java.util.List;
 
 /**
  * Created by cuishiying on 2017/5/9.
+ * 角色
  */
 @Entity
 public class AdminRole extends BaseEntity {

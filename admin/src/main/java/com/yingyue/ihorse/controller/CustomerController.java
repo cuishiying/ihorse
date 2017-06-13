@@ -34,14 +34,14 @@ public class CustomerController {
         return model;
     }
 
-    @RequestMapping(value="/edit/{id}", method=RequestMethod.GET)
+    @RequestMapping(path="/edit/{id}", method=RequestMethod.GET)
     public ModelAndView editCustomer(@PathVariable Integer id) {
         ModelAndView model = new ModelAndView("customer_edit");
         Admin admin = customerService.findOne(id);
         model.addObject("admin", admin);
         return model;
     }
-    @RequestMapping(value="/edit/{id}", method=RequestMethod.POST)
+    @RequestMapping(path="/edit/{id}", method=RequestMethod.POST)
     public AjaxResponse editExam(@PathVariable Integer id, @RequestBody Admin admin) {
         try {
             AjaxResponse response = customerService.updateAdmin(id,admin);

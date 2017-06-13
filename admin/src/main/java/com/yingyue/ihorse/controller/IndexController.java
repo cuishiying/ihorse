@@ -12,12 +12,12 @@ import org.springframework.web.servlet.ModelAndView;
 public class IndexController {
 
     /**
-     * 首页
+     * 首页,跳转至官网
      * @return
      */
     @RequestMapping
     public ModelAndView index(){
-        ModelAndView model = new ModelAndView("customer_list");
+        ModelAndView model = new ModelAndView("index");
         return model;
     }
 }

@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 
 /**
  * Created by cuishiying on 2017/5/9.
+ * 权限
  */
 @Entity
 public class Authority extends BaseEntity implements GrantedAuthority {
