@@ -29,17 +29,163 @@
 </nav>
 <nav th:fragment="nav-menu" >
 	<div class="col-sm-3 col-md-2 sidebar">
-		<ul class="nav nav-sidebar">
-			<li class="active"><a href="#">用户管理 <span class="sr-only">(current)</span></a></li>
-			<li><a href="#">招募管理</a></li>
-			<li><a href="#">视频管理</a></li>
-			<li><a href="#">培训管理</a></li>
-			<li><a href="#">投稿管理</a></li>
-			<li><a href="#">众筹管理</a></li>
-		</ul>
-		<ul class="nav nav-sidebar">
-			<li><a href="">订单管理</a></li>
-			<li><a href="">预约管理</a></li>
-		</ul>
+		<div class="panel-group" id="accordion">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion"
+						   href="#collapseOne">
+							用户管理
+						</a>
+					</h4>
+				</div>
+				<div id="collapseOne" class="panel-collapse collapse in">
+					<div class="panel-body">
+						<ul class="nav nav-sidebar" style="margin: 0px">
+							<li><a href="">客户管理</a></li>
+							<li><a href="">员工管理</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-success">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion"
+						   href="#collapseTwo">
+							演员招募
+						</a>
+					</h4>
+				</div>
+				<div id="collapseTwo" class="panel-collapse collapse">
+					<div class="panel-body">
+						<ul class="nav nav-sidebar" style="margin: 0px">
+							<li><a href="">发布信息</a></li>
+							<li><a href="">报名管理</a></li>
+							<li><a href="">签约管理</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion"
+						   href="#collapseThree">
+							剧本征集
+						</a>
+					</h4>
+				</div>
+				<div id="collapseThree" class="panel-collapse collapse">
+					<div class="panel-body">
+						<ul class="nav nav-sidebar" style="margin: 0px">
+							<li><a href="">尚未开放</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-warning">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion"
+						   href="#collapseFour">
+							班前培训
+						</a>
+					</h4>
+				</div>
+				<div id="collapseFour" class="panel-collapse collapse">
+					<div class="panel-body">
+						<ul class="nav nav-sidebar" style="margin: 0px">
+							<li><a href="">尚未开放</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-danger">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion"
+						   href="#collapseFive">
+							幕后支持
+						</a>
+					</h4>
+				</div>
+				<div id="collapseFive" class="panel-collapse collapse">
+					<div class="panel-body">
+						<ul class="nav nav-sidebar" style="margin: 0px">
+							<li><a href="">尚未开放</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-success">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion"
+						   href="#collapseSix">
+							发行合作
+						</a>
+					</h4>
+				</div>
+				<div id="collapseSix" class="panel-collapse collapse">
+					<div class="panel-body">
+						<ul class="nav nav-sidebar" style="margin: 0px">
+							<li><a href="">尚未开放</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion"
+						   href="#collapseSeven">
+							商务合作
+						</a>
+					</h4>
+				</div>
+				<div id="collapseSeven" class="panel-collapse collapse">
+					<div class="panel-body">
+						<ul class="nav nav-sidebar" style="margin: 0px">
+							<li><a href="">尚未开放</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-warning">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion"
+						   href="#collapseEight">
+							活动大会
+						</a>
+					</h4>
+				</div>
+				<div id="collapseEight" class="panel-collapse collapse">
+					<div class="panel-body">
+						<ul class="nav nav-sidebar" style="margin: 0px">
+							<li><a href="">尚未开放</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-danger">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion"
+						   href="#collapseNine">
+							众筹管理
+						</a>
+					</h4>
+				</div>
+				<div id="collapseNine" class="panel-collapse collapse">
+					<div class="panel-body">
+						<ul class="nav nav-sidebar" style="margin: 0px">
+							<li><a href="">尚未开放</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </nav>
