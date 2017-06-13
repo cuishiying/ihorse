@@ -23,6 +23,7 @@
         <module>core</module>
         <module>parent</module>
         <module>api</module>
+        <module>forend</module>
     </modules>
 
 </project>
