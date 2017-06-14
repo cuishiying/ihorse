@@ -1,0 +1,52 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" name="viewport" />
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-status-bar-style"/>
+<title>登录</title>
+<link th:href="@{/static/css/global.css}" type="text/css" rel="stylesheet">
+<link th:href="@{/static/css/flex.css}" type="text/css" rel="stylesheet">	
+</head>
+<body class="bg_brown">
+	<div class="content bg_brown">
+		<img class="logo" th:src="@{/static/images/logo.png}" height="214" width="290" alt="">
+		<div class="login_box">
+			<form id="loginForm">
+				<input placeholder="请输入帐号" name="accountNumber" tabindex="1" type="text">
+				<input placeholder="请输入密码" name="password" tabindex="2" type="password">
+				<div class="login_password flex_wrap midCenter">
+					<a th:href="@{/customer/regist}">注册账号</a>
+					<a th:href="@{/customer/password}">忘记密码</a>
+				</div>
+				<input class="submit_bottom_fixed" type="button" value="登录" tabindex="3">
+			</form>
+		</div>
+	</div>
+<script th:src="@{/static/js/jquery-1.11.3.min.js}"></script>
+<script th:src="@{/static/js/global.js}"></script>
+<script type="text/javascript" th:inline="javascript">
+	var ctx = /*[[@{/}]]*/;
+	$(".submit_bottom_fixed").click(function() {
+		var accountNumber = $("#loginForm input[name='accountNumber']").val();
+		var password = $("#loginForm input[name='password']").val();
+		if (!accountNumber) {
+			alert("帐号不能为空");
+			return;
+		}
+		$.ajax({
+			url: ctx + "customer/login",
+			data: {"accountNumber":accountNumber,"password":password},
+			type: "post",
+			success: function(result) {
+				if (result.success)
+					window.location.href = ctx + "customer/index";
+				else
+					alert(result.message);
+			}
+		});
+	});
+</script>
+</body>
+</html>

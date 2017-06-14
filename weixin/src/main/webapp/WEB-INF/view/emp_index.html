@@ -1,0 +1,46 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" name="viewport" />
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-status-bar-style"/>
+<title>个人中心</title>
+<link th:href="@{/static/css/global.css}" type="text/css" rel="stylesheet">
+<link th:href="@{/static/css/flex.css}" type="text/css" rel="stylesheet">
+</head>
+<body class="bg_gray">
+	<div class="top flex_wrap main_ends">
+		<div class="top_l flex_wrap flex_aCenter" onclick="javascript:location.href=ctx+'examination/index'">
+			<div class="come_back_box">
+				<img class="come_back" th:src="@{/static/images/come_back.png}" alt="">
+			</div>
+		</div>
+		<div class="top_c flex_wrap midCenter">个人中心</div>
+		<div class="top_r flex_wrap flex_aCenter flex_end"></div>
+	</div> 
+	<div class="content bg_gray">
+		<div class="pc_center_bg flex_wrap col_flex midCenter" th:style="'background-image: url(' + @{/static/images/bg_pc_center.jpg} + ');'">
+			<div class="head_portrait" onclick="javascript:location.href=ctx+'customer/phone'"><img th:src="@{/static/images/head_pic.png}" alt=""></div>
+			<h6 th:text="${admin?.adminName}">你的名字</h6>
+			<p>电话：<span th:text="${admin?.phone}">72</span> </p>
+		</div>
+		<ul class="pc_center_list">
+			<li class="flex_wrap main_ends flex_aCenter" onclick="javascript:location.href=ctx+'customer/record';">
+				<div>我的订单</div>
+				<div><img class="pc_center_arr" th:src="@{/static/images/pc_center_arr.png}" alt=""></div>
+			</li>
+			<!-- <li class="flex_wrap main_ends flex_aCenter">
+				<div>企业动态</div>
+				<div><img class="pc_center_arr" th:src="@{/static/images/pc_center_arr.png}" alt=""></div>
+			</li> -->
+		</ul>
+		<div class="logout" onclick="javascript:location.href=ctx+'customer/logout'">退出登录</div>
+	</div>
+<script th:src="@{/static/js/jquery-1.11.3.min.js}"></script>
+<script th:src="@{/static/js/global.js}"></script>
+<script type="text/javascript" th:inline="javascript">
+	var ctx = /*[[@{/}]]*/;
+</script>
+</body>
+</html>

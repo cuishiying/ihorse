@@ -42,7 +42,7 @@
 				<div id="collapseOne" class="panel-collapse collapse">
 					<div class="panel-body">
 						<ul class="nav nav-sidebar" style="margin: 0px">
-							<li><a th:href="@{/admin}">客户管理</a></li>
+							<li sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/admin}">客户管理</a></li>
 							<li><a th:href="@{/admin}">员工管理</a></li>
 						</ul>
 					</div>
