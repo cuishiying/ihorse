@@ -48,50 +48,42 @@
                     <fieldset th:disabled="${disabled}?true:false">
                         <div class="form-group">
                             <label class="col-sm-1 control-label">
-                                剧组
+                                帐号
                             </label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control" placeholder="">
+                                <input type="text" class="form-control" id="accountNumber" name="accountNumber" placeholder="" th:value="${admin.accountNumber}" disabled>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-1 control-label">
-                                报名时间
+                                姓名
                             </label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control" placeholder="">
+                                <input type="text" class="form-control" id="adminName" name="adminName" placeholder="" th:value="${admin.adminName}">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-1 control-label">
-                                上传海报
+                                电话
                             </label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control" placeholder="">
+                                <input type="text" class="form-control" placeholder="" id="phone" name="phone" th:value="${admin.phone}">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-1 control-label">
-                                项目简介
+                                QQ
                             </label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control" placeholder="">
+                                <input type="text" class="form-control" placeholder="" id="qqNumber" name="qqNumber" th:value="${admin.qqNumber}">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-1 control-label">
-                                联系人
+                                微信
                             </label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control" placeholder="">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-1 control-label">
-                                联系方式
-                            </label>
-                            <div class="col-sm-7">
-                                <input type="text" class="form-control" placeholder="">
+                                <input type="text" class="form-control" placeholder="" id="weixin" name="weixin" th:value="${admin.weixin}">
                             </div>
                         </div>
                         <div class="form-group">
@@ -99,13 +91,21 @@
                                 邮箱
                             </label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control" placeholder="">
+                                <input type="text" class="form-control" placeholder="" id="email" name="email" th:value="${admin.email}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-1 control-label">
+                                生日
+                            </label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" placeholder="" id="birth" name="birth" th:value="${admin.birth}">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-8 text-center">
-                                <button type="submit" class="btn btn-success">发布</button>
-                                <button type="submit" class="btn btn-danger">取消</button>
+                                <button type="submit" class="btn btn-success" onclick="updateAdmin();">发布</button>
+                                <button type="submit" class="btn btn-danger" onclick="javascript:history.back(-1);">取消</button>
                             </div>
                         </div>
                     </fieldset>
@@ -126,5 +126,24 @@
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script th:src="@{/static/js/ie10-viewport-bug-workaround.js}"></script>
 <script th:src="@{/static/js/global.js}"></script>
+<script th:src="@{/static/utils/httpUtils.js}"></script>
+<script type="text/javascript" th:inline="javascript">
+    var ctx = /*[[@{/}]]*/;
+    var id = /*[[${admin.id}]]*/;
+    function updateAdmin() {
+        var admin = {};
+        admin.adminName = $("#adminName").val();
+        admin.phone = $("#phone").val();
+        admin.email = $("#email").val();
+        admin.qqNumber = $("#qqNumber").val();
+        admin.weixin = $("#weixin").val();
+        ajaxUtils.postJson(ctx + "admin/edit/" + id,admin,function(e){
+            if (e.success) {
+                window.location.href = ctx + "admin";
+            } else {
+            }
+        });
+    }
+</script>
 </body>
 </html>

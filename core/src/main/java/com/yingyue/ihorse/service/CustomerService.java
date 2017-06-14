@@ -68,12 +68,15 @@ public class CustomerService {
 
     public AjaxResponse updateAdmin(Integer id,Admin updateAdmin){
         Admin admin = adminRepository.findById(id);
-        admin.getAdminRole().getAuthorities().size();
-        admin.setAdminName(updateAdmin.getAdminName());
-        admin.setPhone(updateAdmin.getPhone());
-        admin.setIdCard(updateAdmin.getIdCard());
-        admin.setQqNumber(updateAdmin.getQqNumber());
-        admin.setWeixin(updateAdmin.getWeixin());
+        updateAdmin.setAccountNumber(admin.getAccountNumber());
+        updateAdmin.setId(admin.getId());
+        updateAdmin.setIdCard(admin.getIdCard());
+        adminRepository.save(updateAdmin);
+//        admin.getAdminRole().getAuthorities().size();
+//        admin.setAdminName(updateAdmin.getAdminName());
+//        admin.setPhone(updateAdmin.getPhone());
+//        admin.setQqNumber(updateAdmin.getQqNumber());
+//        admin.setWeixin(updateAdmin.getWeixin());
         return AjaxResponse.success("修改成功");
     }
 

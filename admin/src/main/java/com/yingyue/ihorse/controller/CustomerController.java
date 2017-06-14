@@ -46,6 +46,7 @@ public class CustomerController {
     public ModelAndView editCustomer(@PathVariable Integer id) {
         ModelAndView model = new ModelAndView("customer_detail");
         Admin admin = customerService.findOne(id);
+        model.addObject("admin", admin);
         model.addObject("disabled", false);
         return model;
     }
@@ -55,6 +56,7 @@ public class CustomerController {
             AjaxResponse response = customerService.updateAdmin(id,admin);
             return response;
         } catch (Exception e) {
+            e.printStackTrace();
             return AjaxResponse.fail("修改失败");
         }
     }
