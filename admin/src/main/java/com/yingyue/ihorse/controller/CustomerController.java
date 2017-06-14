@@ -34,21 +34,35 @@ public class CustomerController {
         return model;
     }
 
-    @RequestMapping(path="/edit/{id}", method=RequestMethod.GET)
-    public ModelAndView editCustomer(@PathVariable Integer id) {
-        ModelAndView model = new ModelAndView("customer_edit");
+    @RequestMapping(path="/detail/{id}", method=RequestMethod.GET)
+    public ModelAndView customerDetail(@PathVariable Integer id) {
+        ModelAndView model = new ModelAndView("customer_detail");
         Admin admin = customerService.findOne(id);
         model.addObject("admin", admin);
+        model.addObject("disabled", true);
+        return model;
+    }
+    @RequestMapping(path="/edit/{id}", method=RequestMethod.GET)
+    public ModelAndView editCustomer(@PathVariable Integer id) {
+        ModelAndView model = new ModelAndView("customer_detail");
+        Admin admin = customerService.findOne(id);
+        model.addObject("disabled", false);
         return model;
     }
     @RequestMapping(path="/edit/{id}", method=RequestMethod.POST)
-    public AjaxResponse editExam(@PathVariable Integer id, @RequestBody Admin admin) {
+    public AjaxResponse editCustomer(@PathVariable Integer id, @RequestBody Admin admin) {
         try {
             AjaxResponse response = customerService.updateAdmin(id,admin);
             return response;
         } catch (Exception e) {
             return AjaxResponse.fail("修改失败");
         }
+    }
+
+    @RequestMapping(path="/delete/{id}", method=RequestMethod.POST)
+    public AjaxResponse deleteCustomer(@PathVariable Integer id) {
+        customerService.deleteAdmin(id);
+        return AjaxResponse.success();
     }
 
 }

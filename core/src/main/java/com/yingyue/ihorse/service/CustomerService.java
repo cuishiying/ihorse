@@ -76,4 +76,9 @@ public class CustomerService {
         admin.setWeixin(updateAdmin.getWeixin());
         return AjaxResponse.success("修改成功");
     }
+
+    public AjaxResponse deleteAdmin(int id){
+        adminRepository.delete(id);
+        return AjaxResponse.success();
+    }
 }
