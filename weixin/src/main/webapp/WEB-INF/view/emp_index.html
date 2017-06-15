@@ -1,46 +1,51 @@
-<!doctype html>
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" name="viewport" />
-<meta name="format-detection" content="telephone=no"/>
-<meta name="apple-mobile-web-app-status-bar-style"/>
-<title>个人中心</title>
-<link th:href="@{/static/css/global.css}" type="text/css" rel="stylesheet">
-<link th:href="@{/static/css/flex.css}" type="text/css" rel="stylesheet">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="icon" href="../../favicon.ico">
+
+	<title>登录</title>
+
+	<!-- Bootstrap core CSS -->
+	<link th:href="@{/static/css/bootstrap.min.css}" rel="stylesheet">
+
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	<link th:href="@{/static/css/ie10-viewport-bug-workaround.css}" rel="stylesheet">
+
+	<!-- Custom styles for this template -->
+	<link th:href="@{/static/css/signin.css}" rel="stylesheet">
+
+	<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+	<!--[if lt IE 9]><!--<script src="../../assets/js/ie8-responsive-file-warning.js"></script>--><![endif]-->
+	<script th:src="@{/static/js/ie-emulation-modes-warning.js}"></script>
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+    <!--<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>-->
+	<!--<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>-->
+	<!--[endif]-->
 </head>
-<body class="bg_gray">
-	<div class="top flex_wrap main_ends">
-		<div class="top_l flex_wrap flex_aCenter" onclick="javascript:location.href=ctx+'examination/index'">
-			<div class="come_back_box">
-				<img class="come_back" th:src="@{/static/images/come_back.png}" alt="">
-			</div>
-		</div>
-		<div class="top_c flex_wrap midCenter">个人中心</div>
-		<div class="top_r flex_wrap flex_aCenter flex_end"></div>
-	</div> 
-	<div class="content bg_gray">
-		<div class="pc_center_bg flex_wrap col_flex midCenter" th:style="'background-image: url(' + @{/static/images/bg_pc_center.jpg} + ');'">
-			<div class="head_portrait" onclick="javascript:location.href=ctx+'customer/phone'"><img th:src="@{/static/images/head_pic.png}" alt=""></div>
-			<h6 th:text="${admin?.adminName}">你的名字</h6>
-			<p>电话：<span th:text="${admin?.phone}">72</span> </p>
-		</div>
-		<ul class="pc_center_list">
-			<li class="flex_wrap main_ends flex_aCenter" onclick="javascript:location.href=ctx+'customer/record';">
-				<div>我的订单</div>
-				<div><img class="pc_center_arr" th:src="@{/static/images/pc_center_arr.png}" alt=""></div>
-			</li>
-			<!-- <li class="flex_wrap main_ends flex_aCenter">
-				<div>企业动态</div>
-				<div><img class="pc_center_arr" th:src="@{/static/images/pc_center_arr.png}" alt=""></div>
-			</li> -->
-		</ul>
-		<div class="logout" onclick="javascript:location.href=ctx+'customer/logout'">退出登录</div>
-	</div>
-<script th:src="@{/static/js/jquery-1.11.3.min.js}"></script>
-<script th:src="@{/static/js/global.js}"></script>
+
+<body>
+
+<div class="container">
+
+
+</div> <!-- /container -->
+
+
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script th:src="@{/static/js/ie10-viewport-bug-workaround.js}"></script>
+<script th:src="@{/static/js/jquery.min.js}"></script>
+<script th:src="@{/static/utils/httpUtils.js}"></script>
+
 <script type="text/javascript" th:inline="javascript">
-	var ctx = /*[[@{/}]]*/;
+    var ctx = /*[[@{/}]]*/;
 </script>
 </body>
 </html>
