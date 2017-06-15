@@ -52,12 +52,29 @@ public class CustomerService {
             return AjaxResponse.fail("密码错误");
         return AjaxResponse.success(admin.getId());
     }
+
+    /**
+     * 修改密码
+     * @param phone
+     * @param password
+     * @return
+     */
     public AjaxResponse updatePassword(String phone, String password) {
         Admin admin = adminRepository.findByPhone(phone);
         if (admin == null) return AjaxResponse.fail("修改失败！此手机号未注册。");
         if (StringUtils.isBlank(password)) return AjaxResponse.fail("密码不能为空");
         admin.setPassword(BCrypt.hashpw(password, BCrypt.gensalt(4)));
         return AjaxResponse.success();
+    }
+
+    /**
+     * 密码重置
+     * @param phone
+     * @return
+     */
+    public AjaxResponse resetPassword(String phone){
+        AjaxResponse ajaxResponse = this.updatePassword(phone, "111111");
+        return ajaxResponse;
     }
     /**
      * 获取用户详情
