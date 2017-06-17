@@ -47,36 +47,28 @@
                     <thead>
                     <tr>
                         <th class="text-center">#</th>
-                        <th class="text-center">帐号</th>
-                        <th class="text-center">姓名</th>
-                        <th class="text-center">性别</th>
-                        <th class="text-center">生日</th>
-                        <th class="text-center">电话</th>
-                        <th class="text-center">微信</th>
-                        <th class="text-center">QQ</th>
-                        <th class="text-center">邮箱</th>
+                        <th class="text-center">剧组</th>
+                        <th class="text-center">报名开始时间</th>
+                        <th class="text-center">报名结束时间</th>
+                        <th class="text-center">状态</th>
+                        <th class="text-center">报名人数</th>
                         <th class="text-center">操作</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr class="text-center" th:each="customer:${page.content}">
+                    <tr class="text-center" th:each="item:${page.content}">
                         <td>
                             <label>
                                 <input type="checkbox" value="remember-me">
                             </label>
                         </td>
-                        <td th:text="${customer.accountNumber}">zhangsan</td>
-                        <td th:text="${customer.adminName}">张三</td>
-                        <td th:text="${customer.sex?.name}">男</td>
-                        <td th:text="${customer.birth}">1990-03-05</td>
-                        <td th:text="${customer.phone}">15135173514</td>
-                        <td th:text="${customer.weixin}">123456</td>
-                        <td th:text="${customer.qqNumber}">643971065</td>
-                        <td th:text="${customer.email}">15135173514@163.com</td>
+                        <td th:text="${item.title}">天下无贼</td>
+                        <td th:text="${item.startTime}">2017-01-01 10:55:22</td>
+                        <td th:text="${item.endTime}">2017-03-01 10:55:22</td>
+                        <td>进行中</td>
+                        <td>77</td>
                         <td>
-                            <a class="btn btn-sm btn-success">查看</a>
-                            <a class="btn btn-sm btn-success">修改</a>
-                            <a class="btn btn-sm btn-danger">删除</a>
+                            <a class="btn btn-sm btn-success">报名管理</a>
                         </td>
                     </tr>
                     </tbody>

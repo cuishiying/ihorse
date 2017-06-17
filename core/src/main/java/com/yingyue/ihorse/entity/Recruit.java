@@ -15,13 +15,14 @@ public class Recruit extends BaseEntity{
     private static final long serialVersionUID = -7620407921593414388L;
     private String title;//项目名称
     private String introduction;//项目介绍
-    private String publicTime;//发布时间
+    private LocalDateTime publicTime;//发布时间
     private LocalDateTime startTime;//报名开始时间
     private LocalDateTime endTime;//报名截至时间
     private String phone;
     private String contacts;//联系人
     private String address;//面试地址
     private String email;//公司邮箱
+    private String poster;//海报
 
     public String getTitle() {
         return title;
@@ -39,11 +40,11 @@ public class Recruit extends BaseEntity{
         this.introduction = introduction;
     }
 
-    public String getPublicTime() {
+    public LocalDateTime getPublicTime() {
         return publicTime;
     }
 
-    public void setPublicTime(String publicTime) {
+    public void setPublicTime(LocalDateTime publicTime) {
         this.publicTime = publicTime;
     }
 
@@ -93,5 +94,13 @@ public class Recruit extends BaseEntity{
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPoster() {
+        return poster;
+    }
+
+    public void setPoster(String poster) {
+        this.poster = poster;
     }
 }
