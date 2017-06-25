@@ -1,8 +1,12 @@
 package com.yingyue.ihorse.entity;
 
 import com.yingyue.ihorse.base.BaseEntity;
+import com.yingyue.ihorse.enums.AuditStatus;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import java.time.LocalDateTime;
 
 /**
  * Created by cuishiying on 2017/6/13.
@@ -18,6 +22,10 @@ public class SignUp extends BaseEntity {
     private String cardA;//身份证正面
     private String cardB;//身份证反面
     private String signupItem;//报名项目
+    private LocalDateTime signTime;//报名时间
+    @Enumerated(EnumType.STRING)
+    private AuditStatus auditStatus; //会员状态
+
 
     public String getName() {
         return name;
@@ -73,5 +81,21 @@ public class SignUp extends BaseEntity {
 
     public void setSignupItem(String signupItem) {
         this.signupItem = signupItem;
+    }
+
+    public LocalDateTime getSignTime() {
+        return signTime;
+    }
+
+    public void setSignTime(LocalDateTime signTime) {
+        this.signTime = signTime;
+    }
+
+    public AuditStatus getAuditStatus() {
+        return auditStatus;
+    }
+
+    public void setAuditStatus(AuditStatus auditStatus) {
+        this.auditStatus = auditStatus;
     }
 }

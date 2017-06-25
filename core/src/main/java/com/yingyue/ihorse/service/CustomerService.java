@@ -32,11 +32,12 @@ public class CustomerService {
         AdminRole adminRole = adminRoleRepository.findByRoleName("Customer");
         //todo   判断手机号或者帐号是否已经存在
         admin.setAdminRole(adminRole);
-        try{
-            adminRepository.save(admin);
-        }catch (Exception e){
-            return AjaxResponse.fail("您的帐号已存在");
-        }
+        adminRepository.save(admin);
+//        try{
+//
+//        }catch (Exception e){
+//            return AjaxResponse.fail("您的帐号已存在");
+//        }
         return AjaxResponse.success("注册成功");
     }
 
@@ -83,21 +84,29 @@ public class CustomerService {
         return adminRepository.findOne(id);
     }
 
+    /**
+     * 更新用户信息
+     * @param id
+     * @param updateAdmin
+     * @return
+     */
     public AjaxResponse updateAdmin(Integer id,Admin updateAdmin){
         Admin admin = adminRepository.findById(id);
-        updateAdmin.setAccountNumber(admin.getAccountNumber());
-        updateAdmin.setId(admin.getId());
-        updateAdmin.setIdCard(admin.getIdCard());
-        adminRepository.save(updateAdmin);
-//        admin.getAdminRole().getAuthorities().size();
-//        admin.setAdminName(updateAdmin.getAdminName());
-//        admin.setPhone(updateAdmin.getPhone());
-//        admin.setQqNumber(updateAdmin.getQqNumber());
-//        admin.setWeixin(updateAdmin.getWeixin());
+        admin.getAdminRole().getAuthorities().size();
+        admin.setAdminName(updateAdmin.getAdminName());
+        admin.setPhone(updateAdmin.getPhone());
+        admin.setQqNumber(updateAdmin.getQqNumber());
+        admin.setWeixin(updateAdmin.getWeixin());
+        admin.setEmail(updateAdmin.getEmail());
+        admin.setBirth(updateAdmin.getBirth());
         return AjaxResponse.success("修改成功");
     }
 
     public AjaxResponse deleteAdmin(int id){
+        Admin admin = adminRepository.findById(id);
+        if(admin.getAccountNumber().equals("admin")){
+            return AjaxResponse.fail("管理员不能被删除");
+        }
         adminRepository.delete(id);
         return AjaxResponse.success();
     }
