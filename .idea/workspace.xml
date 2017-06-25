@@ -2,26 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad18c230-4a33-4f9c-8064-f22d72e8a8b2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/main/java/com/yingyue/ihorse/enums/AuditStatus.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/main/java/com/yingyue/ihorse/enums/PayStatus.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/main/java/com/yingyue/ihorse/enums/ProjectStatus.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/src/main/java/com/yingyue/ihorse/controller/VedioController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/src/main/webapp/WEB-INF/view/vedio_list.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/src/main/webapp/WEB-INF/view/video.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/admin.iml" afterPath="$PROJECT_DIR$/admin/admin.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/main/resources/jdbc.properties" afterPath="$PROJECT_DIR$/admin/src/main/resources/jdbc.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/common/fragment.html" afterPath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/common/fragment.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/customer_detail.html" afterPath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/customer_detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/release_message.html" afterPath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/release_message.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/api.iml" afterPath="$PROJECT_DIR$/api/api.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/core.iml" afterPath="$PROJECT_DIR$/core/core.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/java/com/yingyue/ihorse/entity/SignUp.java" afterPath="$PROJECT_DIR$/core/src/main/java/com/yingyue/ihorse/entity/SignUp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/java/com/yingyue/ihorse/service/CustomerService.java" afterPath="$PROJECT_DIR$/core/src/main/java/com/yingyue/ihorse/service/CustomerService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/forend/forend.iml" afterPath="$PROJECT_DIR$/forend/forend.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/weixin/src/main/resources/jdbc.properties" afterPath="$PROJECT_DIR$/weixin/src/main/resources/jdbc.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/weixin/weixin.iml" afterPath="$PROJECT_DIR$/weixin/weixin.iml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -1217,7 +1198,7 @@
       <workItem from="1497763556358" duration="330000" />
       <workItem from="1497971239534" duration="1172000" />
       <workItem from="1498013102850" duration="5000" />
-      <workItem from="1498393857070" duration="759000" />
+      <workItem from="1498393857070" duration="832000" />
     </task>
     <task id="LOCAL-00001" summary="pom">
       <created>1495501772342</created>
@@ -1352,11 +1333,18 @@
       <option name="project" value="LOCAL" />
       <updated>1497692166409</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="update">
+      <created>1498394646788</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1498394646788</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63125000" />
+    <option name="totallyTimeSpent" value="63198000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -1417,9 +1405,9 @@
     <MESSAGE value="properties" />
     <MESSAGE value="uodate" />
     <MESSAGE value="index.html" />
-    <MESSAGE value="update" />
     <MESSAGE value="add quanxian" />
-    <option name="LAST_COMMIT_MESSAGE" value="add quanxian" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
