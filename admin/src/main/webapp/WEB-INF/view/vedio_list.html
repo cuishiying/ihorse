@@ -38,41 +38,57 @@
     <div class="row">
         <nav th:replace="common/fragment :: nav-menu"></nav>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h2 class="page-header">招募管理</h2>
+            <h2 class="page-header">用户管理</h2>
 
 
             <!--<h2 class="sub-header">Section title</h2>-->
             <div class="table-responsive">
+
+                <a class="btn btn-primary add" th:href="@{/vedio/add}">添加</a>
+
                 <table class="table table-striped">
                     <thead>
                     <tr>
                         <th class="text-center">#</th>
-                        <th class="text-center">剧组</th>
-                        <th class="text-center">报名开始时间</th>
-                        <th class="text-center">报名结束时间</th>
-                        <th class="text-center">状态</th>
-                        <th class="text-center">报名人数</th>
+                        <th class="text-center">帐号</th>
+                        <th class="text-center">姓名</th>
+                        <th class="text-center">性别</th>
+                        <th class="text-center">生日</th>
+                        <th class="text-center">电话</th>
+                        <th class="text-center">微信</th>
+                        <th class="text-center">QQ</th>
+                        <th class="text-center">邮箱</th>
                         <th class="text-center">操作</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr class="text-center" th:each="item:${page.content}">
-                        <td>
-                            <label>
-                                <input type="checkbox" value="remember-me">
-                            </label>
-                        </td>
-                        <td th:text="${item.title}">天下无贼</td>
-                        <td th:text="${item.startTime}">2017-01-01 10:55:22</td>
-                        <td th:text="${item.endTime}">2017-03-01 10:55:22</td>
-                        <td>进行中</td>
-                        <td>77</td>
-                        <td>
-                            <a class="btn btn-sm btn-success">报名管理</a>
-                        </td>
-                    </tr>
+                    <!--<tr class="text-center" th:each="customer:${page.content}">-->
+                        <!--<td>-->
+                            <!--<label>-->
+                                <!--<input type="checkbox" value="remember-me">-->
+                            <!--</label>-->
+                        <!--</td>-->
+                        <!--<td th:text="${customer.accountNumber}">zhangsan</td>-->
+                        <!--<td th:text="${customer.adminName}">张三</td>-->
+                        <!--<td th:text="${customer.sex?.name}">男</td>-->
+                        <!--<td th:text="${customer.birth}">1990-03-05</td>-->
+                        <!--<td th:text="${customer.phone}">15135173514</td>-->
+                        <!--<td th:text="${customer.weixin}">123456</td>-->
+                        <!--<td th:text="${customer.qqNumber}">643971065</td>-->
+                        <!--<td th:text="${customer.email}">15135173514@163.com</td>-->
+                        <!--<td>-->
+                            <!--<a class="btn btn-sm btn-success" th:href="@{/admin/detail/}+${customer.id}">查看</a>-->
+                            <!--<a class="btn btn-sm btn-success" th:href="@{/admin/edit/}+${customer.id}">修改</a>-->
+                            <!--<a class="btn btn-sm btn-danger delete" th:value="${customer.id}">删除</a>-->
+                        <!--</td>-->
+                    <!--</tr>-->
                     </tbody>
                 </table>
+
+                <!--分页-->
+                <!--<nav th:replace="common/page::paging"></nav>-->
+
+
             </div>
         </div>
     </div>
@@ -89,5 +105,18 @@
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script th:src="@{/static/js/ie10-viewport-bug-workaround.js}"></script>
 <script th:src="@{/static/js/global.js}"></script>
+<script th:src="@{/static/utils/httpUtils.js}"></script>
+
+<script type="text/javascript" th:inline="javascript">
+    var ctx = /*[[@{/}]]*/;
+    //删除客户
+    $(".delete").click(function () {
+        ajaxUtils.postParams(ctx+"admin/delete/"+$(this).attr("value"),"",function (e) {
+            if(e.success){
+                history.go(0);
+            }
+        })
+    })
+</script>
 </body>
 </html>
