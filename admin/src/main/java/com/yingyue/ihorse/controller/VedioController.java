@@ -3,6 +3,9 @@ package com.yingyue.ihorse.controller;
 import com.yingyue.ihorse.base.AjaxResponse;
 import com.yingyue.ihorse.entity.Admin;
 import com.yingyue.ihorse.entity.Vedio;
+import com.yingyue.ihorse.service.VedioService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -17,6 +20,9 @@ import org.springframework.data.web.PageableDefault;
 @RequestMapping("/vedio")
 public class VedioController {
 
+    @Autowired
+    private VedioService vedioService;
+
     /**
      * 视频列表
      * @return
@@ -24,6 +30,8 @@ public class VedioController {
     @RequestMapping
     public ModelAndView vedioListView(@RequestParam(required = false) String keyword, @PageableDefault Pageable pageable){
         ModelAndView model = new ModelAndView("vedio_list");
+        Page<Vedio> page = vedioService.findAll(pageable);
+        model.addObject("page",page);
         return model;
     }
 
@@ -43,8 +51,8 @@ public class VedioController {
      */
     @RequestMapping(path = "/add",method = RequestMethod.POST)
     public AjaxResponse addVedio(@RequestBody Vedio vidio){
-        Vedio v = vidio;
-        return null;
+        AjaxResponse ajaxResponse = vedioService.addVedio(vidio);
+        return ajaxResponse;
     }
 
     /**

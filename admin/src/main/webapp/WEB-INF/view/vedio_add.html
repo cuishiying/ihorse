@@ -45,7 +45,7 @@
             <!--<h2 class="sub-header">Section title</h2>-->
             <div class="table-responsive">
 
-                <form class="form-horizontal" role="form">
+                <div class="form-horizontal">
                     <fieldset>
                         <div class="form-group">
                             <label class="col-sm-1 control-label">
@@ -76,13 +76,16 @@
                                 海报
                             </label>
                             <div class="col-sm-7">
-                                <img src="/static/images/favicon.ico"
-                                     alt="通用的占位符缩略图" class="upImg">
-                                <form id="uploadImg" enctype="multipart/form-data">
-                                    <input type="file" name="img" hidden="hidden" accept="image/jpg,image/jpge,image/png" style="display: none" >
+                                <div>
+                                    <img src="../../static/images/favicon.ico" class="poster-img">
+                                </div>
+                                <button type="button" class="btn btn-success poster-upload">上传</button>
+                                <form id="uploadForm" enctype="multipart/form-data" method="post">
+                                    <input   type="file" name="file" hidden="hidden" accept="image/jpg,image/jpge,image/png" style="display: none">
                                 </form>
                             </div>
                         </div>
+
                     </fieldset>
                     <div class="form-group">
                         <div class="col-sm-8 text-center">
@@ -90,7 +93,7 @@
                             <button type="button" class="btn btn-danger" onclick="javascript:history.back(-1);">取消</button>
                         </div>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
@@ -101,6 +104,7 @@
 <!-- Placed at the end of the document so the pages load faster -->
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
 <script th:src="@{/static/js/jquery.min.js}"></script>
+<script th:src="@{/static/js/jquery.form.js}"></script>
 <script th:src="@{/static/js/bootstrap.min.js}"></script>
 <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
 <script th:src="@{/static/js/holder.min.js}"></script>
@@ -114,25 +118,21 @@
 <script type="text/javascript" th:inline="javascript">
     var ctx = /*[[@{/}]]*/;
 
-    $(".upImg").bind("click", function(e) {
+    $(".poster-upload").bind("click", function(e) {
         $(this).next().find("input[type='file']").trigger("click").unbind("change").bind("change",function () {
             if (!this.value) return;
             $(this).parent().ajaxSubmit({
-                url: ctx + "uploadImg",
+                url: ctx + "upload/uploadImg",
                 type: "post",
                 beforeSend: function() {
-//                    $(e.target).find("img").remove();
-//                    $(e.target).append('<img src="' + ctx + 'static/images/loading.jpg.gif"/>');
                 },
-                success:function (result) {
-//                    if (result.success){
-//                        $(e.target).find("img").remove();
-//                        $(e.target).append('<img src="' + result.data + '"/>');
-//                        $(e.target).next().find("input [type='file']").val(result.data);
-//                    }else{
-//                        alert(result.message);
-//                    }
-                }, error: function(error) {
+                success:function (e) {
+                    if(e.success){
+                        $(".poster-img").attr("src",e.data);
+                    }
+                    console.log(e);
+                },
+                error: function(error) {
                     alert("出错啦");
                 }
             });
@@ -144,14 +144,39 @@
         vedio.name = $("#name").val();
         vedio.intro = $("#intro").val();
         vedio.url = $("#url").val();
-//        vedio.imageUrl = $("#imageUrl").val();
-        console.log(vedio);
-        ajaxUtils.postJson(ctx + "admin/add",vedio,function(e){
+        vedio.imageUrl = $(".poster-img").attr("src");
+        var isValidate = validateVedio(vedio);
+        if (!isValidate) return;
+        ajaxUtils.postJson(ctx + "vedio/add",vedio,function(e){
             if (e.success) {
-//                window.location.href = ctx + "admin";
+                console.log(e)
+                window.location.href = ctx + "vedio";
             } else {
             }
         });
+    }
+    
+    function validateVedio(vedio) {
+        var flag = true;
+        if(!vedio.name){
+            alert("标题必须填写");
+            return;
+        }
+        if(!vedio.intro){
+            alert("简介必须填写");
+            return;
+        }
+        if(!vedio.url){
+            alert("url必须填写");
+            return;
+        }
+        if(!vedio.imageUrl){
+            alert("海报必须上传");
+            return;
+        }
+        flag = false;
+        return !flag;
+        
     }
 </script>
 </body>

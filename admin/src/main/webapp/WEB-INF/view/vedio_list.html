@@ -38,7 +38,7 @@
     <div class="row">
         <nav th:replace="common/fragment :: nav-menu"></nav>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h2 class="page-header">用户管理</h2>
+            <h2 class="page-header">作品展示</h2>
 
 
             <!--<h2 class="sub-header">Section title</h2>-->
@@ -50,38 +50,32 @@
                     <thead>
                     <tr>
                         <th class="text-center">#</th>
-                        <th class="text-center">帐号</th>
-                        <th class="text-center">姓名</th>
-                        <th class="text-center">性别</th>
-                        <th class="text-center">生日</th>
-                        <th class="text-center">电话</th>
-                        <th class="text-center">微信</th>
-                        <th class="text-center">QQ</th>
-                        <th class="text-center">邮箱</th>
+                        <th class="text-center">标题</th>
+                        <th class="text-center">简介</th>
+                        <th class="text-center">url</th>
+                        <th class="text-center">海报</th>
+                        <th class="text-center">创建时间</th>
                         <th class="text-center">操作</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <!--<tr class="text-center" th:each="customer:${page.content}">-->
-                        <!--<td>-->
-                            <!--<label>-->
-                                <!--<input type="checkbox" value="remember-me">-->
-                            <!--</label>-->
-                        <!--</td>-->
-                        <!--<td th:text="${customer.accountNumber}">zhangsan</td>-->
-                        <!--<td th:text="${customer.adminName}">张三</td>-->
-                        <!--<td th:text="${customer.sex?.name}">男</td>-->
-                        <!--<td th:text="${customer.birth}">1990-03-05</td>-->
-                        <!--<td th:text="${customer.phone}">15135173514</td>-->
-                        <!--<td th:text="${customer.weixin}">123456</td>-->
-                        <!--<td th:text="${customer.qqNumber}">643971065</td>-->
-                        <!--<td th:text="${customer.email}">15135173514@163.com</td>-->
-                        <!--<td>-->
-                            <!--<a class="btn btn-sm btn-success" th:href="@{/admin/detail/}+${customer.id}">查看</a>-->
-                            <!--<a class="btn btn-sm btn-success" th:href="@{/admin/edit/}+${customer.id}">修改</a>-->
-                            <!--<a class="btn btn-sm btn-danger delete" th:value="${customer.id}">删除</a>-->
-                        <!--</td>-->
-                    <!--</tr>-->
+                    <tr class="text-center" th:each="vedio:${page.content}">
+                        <td>
+                            <label>
+                                <input type="checkbox" value="remember-me">
+                            </label>
+                        </td>
+                        <td th:text="${vedio.name}"></td>
+                        <td th:text="${vedio.intro}"></td>
+                        <td th:text="${vedio.url}"></td>
+                        <td th:text="${vedio.imageUrl}">1990-03-05</td>
+                        <td th:text="${vedio.createTime}">15135173514</td>
+                        <td>
+                            <a class="btn btn-sm btn-success">查看</a>
+                            <a class="btn btn-sm btn-success" >修改</a>
+                            <a class="btn btn-sm btn-danger delete" >删除</a>
+                        </td>
+                    </tr>
                     </tbody>
                 </table>
 
