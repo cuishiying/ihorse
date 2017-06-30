@@ -22,6 +22,8 @@ public class Vedio extends BaseEntity{
     private String imageUrl;
     private String category;
     private String remark;
+    private String uu;
+    private String vu;
 
     public String getName() {
         return name;
@@ -101,5 +103,21 @@ public class Vedio extends BaseEntity{
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public String getUu() {
+        return uu;
+    }
+
+    public void setUu(String uu) {
+        this.uu = uu;
+    }
+
+    public String getVu() {
+        return vu;
+    }
+
+    public void setVu(String vu) {
+        this.vu = vu;
     }
 }
