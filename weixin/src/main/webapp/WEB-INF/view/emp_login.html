@@ -71,7 +71,7 @@
         }
         ajaxUtils.postParams(ctx + "customer/login",{"accountNumber":accountNumber,"password":password},function (e) {
             if (e.success)
-                window.location.href = ctx + "customer/index";
+                window.location.href = ctx + "vedio";
             else{
                 alert(result.message);
 			}

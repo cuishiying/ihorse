@@ -39,4 +39,9 @@ public class VedioService {
         Page<Vedio> page = vedioRepository.findAll(pageable);
         return page;
     }
+
+    public Vedio findById(Integer id){
+        Vedio vedio = vedioRepository.findOne(id);
+        return vedio;
+    }
 }

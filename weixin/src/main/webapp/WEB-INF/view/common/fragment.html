@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+</head>
+<nav th:fragment="nav-header" class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">影约网络科技有限公司</a>
+		</div>
+		<div id="navbar" class="navbar-collapse collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<li><a th:href="@{/weixin/customer/login}">手机</a></li>
+				<li><a href="#">监测</a></li>
+				<li><a href="#">设置</a></li>
+				<li><a href="#">帐号</a></li>
+				<li><a href="#">帮助</a></li>
+			</ul>
+			<form class="navbar-form navbar-right">
+				<input type="text" class="form-control" placeholder="Search...">
+			</form>
+		</div>
+	</div>
+</nav>
+<nav th:fragment="nav-menu" >
+	<div class="col-sm-3 col-md-2 sidebar">
+		<div class="panel-group" id="accordion">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion"
+						   href="#collapseOne">
+							用户管理
+						</a>
+					</h4>
+				</div>
+				<div id="collapseOne" class="panel-collapse collapse">
+					<div class="panel-body">
+						<ul class="nav nav-sidebar" style="margin: 0px">
+							<li sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/admin}">客户管理</a></li>
+							<li><a th:href="@{/admin}">员工管理</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-success">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion"
+						   href="#collapseTwo">
+							演员招募
+						</a>
+					</h4>
+				</div>
+				<div id="collapseTwo" class="panel-collapse collapse">
+					<div class="panel-body">
+						<ul class="nav nav-sidebar" style="margin: 0px">
+							<li><a th:href="@{/movie/releaseMessage}">发布信息</a></li>
+							<li><a th:href="@{/movie/recruitManage}">招募管理</a></li>
+							<li><a th:href="@{/movie/signupManage}">报名管理</a></li>
+							<li><a th:href="@{/movie/releaseMessage}">签约管理</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion"
+						   href="#collapseThree">
+							剧本征集
+						</a>
+					</h4>
+				</div>
+				<div id="collapseThree" class="panel-collapse collapse">
+					<div class="panel-body">
+						<ul class="nav nav-sidebar" style="margin: 0px">
+							<li><a href="">尚未开放</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-warning">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion"
+						   href="#collapseFour">
+							班前培训
+						</a>
+					</h4>
+				</div>
+				<div id="collapseFour" class="panel-collapse collapse">
+					<div class="panel-body">
+						<ul class="nav nav-sidebar" style="margin: 0px">
+							<li><a href="">尚未开放</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-danger">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion"
+						   href="#collapseFive">
+							幕后支持
+						</a>
+					</h4>
+				</div>
+				<div id="collapseFive" class="panel-collapse collapse">
+					<div class="panel-body">
+						<ul class="nav nav-sidebar" style="margin: 0px">
+							<li><a href="">尚未开放</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-success">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion"
+						   href="#collapseSix">
+							发行合作
+						</a>
+					</h4>
+				</div>
+				<div id="collapseSix" class="panel-collapse collapse">
+					<div class="panel-body">
+						<ul class="nav nav-sidebar" style="margin: 0px">
+							<li><a href="">尚未开放</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion"
+						   href="#collapseSeven">
+							商务合作
+						</a>
+					</h4>
+				</div>
+				<div id="collapseSeven" class="panel-collapse collapse">
+					<div class="panel-body">
+						<ul class="nav nav-sidebar" style="margin: 0px">
+							<li><a href="">尚未开放</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-warning">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion"
+						   href="#collapseEight">
+							活动大会
+						</a>
+					</h4>
+				</div>
+				<div id="collapseEight" class="panel-collapse collapse">
+					<div class="panel-body">
+						<ul class="nav nav-sidebar" style="margin: 0px">
+							<li><a href="">尚未开放</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-danger">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion"
+						   href="#collapseNine">
+							众筹管理
+						</a>
+					</h4>
+				</div>
+				<div id="collapseNine" class="panel-collapse collapse">
+					<div class="panel-body">
+						<ul class="nav nav-sidebar" style="margin: 0px">
+							<li><a href="">尚未开放</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-success">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion"
+						   href="#collapseTen">
+							作品展示
+						</a>
+					</h4>
+				</div>
+				<div id="collapseTen" class="panel-collapse collapse">
+					<div class="panel-body">
+						<ul class="nav nav-sidebar" style="margin: 0px">
+							<li><a th:href="@{/vedio}">视频管理</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</nav>
